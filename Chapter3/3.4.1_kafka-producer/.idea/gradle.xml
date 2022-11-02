@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleMigrationSettings" migrationVersion="1" />
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/kafka-producer-async-callback" />
+        <option name="gradleJvm" value="azul-15" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/kafka-producer-async-callback" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/kafka-producer-custom-partition" />
+        <option name="gradleJvm" value="azul-15" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/kafka-producer-custom-partition" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/kafka-producer-exact-partition" />
+        <option name="gradleJvm" value="azul-15" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/kafka-producer-exact-partition" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/kafka-producer-key-value" />
+        <option name="gradleJvm" value="azul-15" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/kafka-producer-key-value" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/kafka-producer-sync-callback" />
+        <option name="gradleJvm" value="azul-15" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/kafka-producer-sync-callback" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/simple-kafka-producer" />
+        <option name="gradleJvm" value="azul-15" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/simple-kafka-producer" />
+            <option value="$PROJECT_DIR$/simple-kafka-producer/untitled" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>
