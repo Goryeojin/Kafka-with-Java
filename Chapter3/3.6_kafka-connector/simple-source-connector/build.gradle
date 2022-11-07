@@ -1,0 +1,33 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.5'
+    id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+    id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.apache.kafka:connect-api:3.3.1'
+    implementation 'org.slf4j:slf4j-simple:2.0.3'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+// 카프카 커넥터를 직접 개발하고 플러그인으로 커넥트에 추가할 때는 직접 작성한 클래스뿐만 아니라 참조하는 라이브러리도 함께 빌드하여 jar로 압축해야 한다.
+// 개발 시 참조했던 dependencies 를 같이 빌드하지 않고 커넥트의 플러그인으로 추가하면 커넥터 실행 시 참조하는 클래스를 찾지 못하고
+// ClassNotFoundException 이 발생한다.
+jar {
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it)}
+    }
+}
