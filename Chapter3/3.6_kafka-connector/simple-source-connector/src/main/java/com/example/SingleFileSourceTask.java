@@ -77,7 +77,7 @@ public class SingleFileSourceTask extends SourceTask {
 
     @Override
     public List<SourceRecord> poll() throws InterruptedException {
-        List<SourceRecord> result = new ArrayList<>();
+        List<SourceRecord> results = new ArrayList<>();
         // poll() => 태스크 시작 이후 지속적으로 데이터를 가져오기 위해 반복적으로 호출됨.
         // 소스 파일의 데이터를 읽어 토픽으로 데이터를 보내는 로직 작성.
         // 토픽으로 데이터 보내는 방법 => return List<SourceRecord>
@@ -89,15 +89,15 @@ public class SingleFileSourceTask extends SourceTask {
             // 토픽으로 보내기 전 파일에서 한 줄씩 읽어와야 한다. 마지막으로 읽었던 지점 이후로 파일의 마지막까지 읽어 리턴하는 getLines() 로 데이터를 받는다.
             if (lines.size() > 0) {
                lines.forEach(line -> {
-                // 리턴받은 데이터는 각 줄을 한 개의 SourceRecord 인스턴스로 생성해 results 변수에 넣는다.
                    Map<String, Long> sourceOffset = Collections.singletonMap(POSITION_FIELD, ++position);
                    SourceRecord sourceRecord = new SourceRecord(fileNamePartition, sourceOffset, topic, Schema.STRING_SCHEMA, line);
                    // SourceRecord 인스턴스를 만들 때는 마지막으로 전송한 데이터의 위치를 오프셋 스토리지에 저장하기 위해
                    // 앞서 선언한 fileNameParition, 현재 토픽으로 보내는 줄의 위치를 기록한 sourceOffset 을 변수로 넣어 선언한다.
-                   result.add(sourceRecord);
+                   results.add(sourceRecord);
+                   // 리턴받은 데이터는 각 줄을 한 개의 SourceRecord 인스턴스로 생성해 results 변수에 넣는다.
                });
             }
-           return result;
+           return results;
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
             throw new ConnectException(e.getMessage(), e);

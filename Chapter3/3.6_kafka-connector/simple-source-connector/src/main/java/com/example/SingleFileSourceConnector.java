@@ -18,11 +18,13 @@ public class SingleFileSourceConnector extends SourceConnector {
 
     @Override
     public String version() {
+        // 커넥터 버전 리턴. 커넥터 플러그인을 조회할 때 이 버전이 노출된다.
         return "1.0";
     }
 
     @Override
     public void start(Map<String, String> props) {
+        // 사용자가 JSON 또는 config 파일 형태로 입력한 설정값 초기화하는 메서드.
         this.configProperties = props;
         try {
             new SingleFileSourceConnectorConfig(props);
