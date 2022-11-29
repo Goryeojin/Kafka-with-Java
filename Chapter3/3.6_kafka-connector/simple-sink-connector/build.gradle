@@ -1,0 +1,28 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.5'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+	id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	implementation 'org.apache.kafka:connect-api:3.3.1'
+	implementation 'org.slf4j:slf4j-simple:2.0.3'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
+jar {
+	from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }}
+}
